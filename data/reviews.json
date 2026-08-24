@@ -1,0 +1,42 @@
+[
+  {
+    "id": "R001",
+    "equipmentId": "E001",
+    "farmerId": "U001",
+    "rating": 5,
+    "text": "Good machine and timely service.",
+    "createdAt": "2026-08-11"
+  },
+  {
+    "id": "R002",
+    "equipmentId": "E002",
+    "farmerId": "U001",
+    "rating": 4,
+    "text": "Good machine and timely service.",
+    "createdAt": "2026-08-12"
+  },
+  {
+    "id": "R003",
+    "equipmentId": "E003",
+    "farmerId": "U001",
+    "rating": 5,
+    "text": "Good machine and timely service.",
+    "createdAt": "2026-08-13"
+  },
+  {
+    "id": "R004",
+    "equipmentId": "E004",
+    "farmerId": "U001",
+    "rating": 4,
+    "text": "Good machine and timely service.",
+    "createdAt": "2026-08-14"
+  },
+  {
+    "id": "R005",
+    "equipmentId": "E005",
+    "farmerId": "U001",
+    "rating": 5,
+    "text": "Good machine and timely service.",
+    "createdAt": "2026-08-15"
+  }
+]

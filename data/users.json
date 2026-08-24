@@ -1,0 +1,56 @@
+[
+  {
+    "id": "U001",
+    "name": "Ravi Kumar",
+    "phone": "9000000001",
+    "role": "farmer",
+    "village": "Rampur",
+    "district": "East Champaran",
+    "state": "Bihar"
+  },
+  {
+    "id": "U002",
+    "name": "Suresh Yadav",
+    "phone": "9000000002",
+    "role": "owner",
+    "village": "Motihari",
+    "district": "East Champaran",
+    "state": "Bihar"
+  },
+  {
+    "id": "U003",
+    "name": "Krishi Seva FPO",
+    "phone": "9000000003",
+    "role": "institution",
+    "village": "Patna",
+    "district": "Patna",
+    "state": "Bihar"
+  },
+  {
+    "id": "U004",
+    "name": "Admin Demo",
+    "phone": "9000000004",
+    "role": "admin",
+    "village": "Patna",
+    "district": "Patna",
+    "state": "Bihar"
+  },
+  {
+    "id": "U005",
+    "name": "Rahul Kumar",
+    "phone": "9000000011",
+    "role": "farmer",
+    "village": "Vaishali",
+    "district": "Vaishali",
+    "state": "Bihar"
+  },
+  {
+    "id": "U006",
+    "name": "Amit Singh",
+    "phone": "9000000012",
+    "role": "owner",
+    "village": "Nalanda",
+    "district": "Nalanda",
+    "state": "Bihar"
+  }
+]

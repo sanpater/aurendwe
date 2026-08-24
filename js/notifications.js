@@ -1,0 +1,1 @@
+function initNotifications(){const n=getNotifications(),u=getCurrentUser();if(!u)return;const unread=n.filter(x=>x.userId===u.id&&!x.read).length;document.querySelector(".nav-login")?.insertAdjacentHTML("beforebegin",`<span class="notify">🔔 ${unread}</span>`)}
