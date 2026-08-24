@@ -28,8 +28,14 @@ const API_URL = '/api';
 async function fetchAllData() {
     try {
         const endpoints = ['users', 'equipment', 'bookings', 'reviews', 'notifications', 'complaints', 'saathi'];
-        const promises = endpoints.map(ep => fetch(`${API_URL}/${ep}`).then(res => res.json()));
+        const promises = endpoints.map(ep => fetch(`${API_URL}/${ep}`).then(res => {
+            if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
+            return res.json();
+        }));
         const results = await Promise.all(promises);
+
+        // Ensure that the response is actually an array, otherwise throw to fallback
+        if (!Array.isArray(results[0])) throw new Error('Invalid API response format');
 
         window.appState.users = results[0] || [];
         window.appState.equipment = results[1] || [];
