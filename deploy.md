@@ -1,38 +1,28 @@
-# Deployment Guide (Vercel + Neon Postgres)
+# Railway Deployment Guide
 
-This project has been upgraded from a static local-storage prototype to a full-stack application with a real backend database. Follow these steps to deploy the project live on Vercel for your college presentation.
+This project is configured to deploy instantly on [Railway](https://railway.app) using a local JSON database.
 
-## Step 1: Create a Free Neon Database
-1. Go to [Neon.tech](https://neon.tech/) and sign up for a free account.
-2. Create a new project (e.g., "Krishi Sanjha").
-3. Once created, you will see a **Connection String** in your dashboard. It looks something like:
-   `postgresql://username:password@ep-withered-leaf-1234.us-east-2.aws.neon.tech/neondb?sslmode=require`
-4. Copy this exact string; you will need it for Vercel.
+It requires **no external database** (like Postgres or MongoDB) and **no environment variables**. The app automatically pre-loads demo farmers and equipment data on the first run.
 
-## Step 2: Deploy to Vercel
-1. Go to [Vercel.com](https://vercel.com/) and log in (using your GitHub account is recommended).
-2. Click **Add New... > Project**.
-3. Import your GitHub repository that contains this code.
-4. On the **Configure Project** screen:
-   - Leave the Framework Preset as "Other".
-   - Open the **Environment Variables** section.
-   - Add a new variable:
-     - **Key:** `DATABASE_URL`
-     - **Value:** Paste your Neon connection string here.
-5. Click **Deploy**. Vercel will build and deploy your project automatically.
+## Step 1: Deploy to Railway
 
-## Step 3: Initialize Your Database (Crucial!)
-Because you just created a fresh database, it is completely empty. The app will fail if the tables don't exist yet.
+1. Go to [Railway.app](https://railway.app/) and log in with your GitHub account.
+2. Click **New Project** -> **Deploy from GitHub repo**.
+3. Select this repository.
+4. Railway will automatically detect the `package.json` file, run `npm install`, and start the app using `node server.js`.
 
-1. Once your Vercel deployment finishes, copy your live domain (e.g., `https://your-project.vercel.app`).
-2. Open a new tab in your browser and go to your setup link:
-   `https://your-project.vercel.app/api/setup`
-   *(You should see `{"message":"Database setup successfully"}`)*
-3. Now, load the demo data by going to:
-   `https://your-project.vercel.app/api/seed`
-   *(You should see `{"message":"Database seeded successfully"}`)*
+## Step 2: Access Your App
 
-## Step 4: Test Your Live App!
-Now go back to the homepage (`https://your-project.vercel.app/index.html`). The app will pull data straight from Neon Postgres. You can test making bookings, adding users, etc.
+1. Once the deployment finishes (it should take less than a minute), go to your Railway project settings.
+2. Under the **Settings** tab, go to **Domains** and click **Generate Domain**.
+3. Railway will give you a public URL (e.g., `https://your-app-production.up.railway.app`).
+4. Click the link to open your live application!
 
-*Note: As requested, the Razorpay and WhatsApp integrations are omitted from the backend implementation.*
+## Notes on Data Storage
+Because Railway uses ephemeral (temporary) file systems by default, any new data you add (new users, new bookings) will reset to the original demo data if the server goes to sleep or redeploys.
+
+To make your data permanent:
+1. In your Railway project, click on your service.
+2. Go to **Settings** -> **Volumes**.
+3. Click **Create Volume** and set the mount path to `/app`.
+This will ensure your `database.json` file is saved permanently!
