@@ -51,6 +51,12 @@ async function fetchAllData() {
         // Fallback to local data if server fails
         seed();
     }
+
+    // ALWAYS ensure KS_DATA categories and locations exist globally for the UI
+    if (window.KS_DATA) {
+        window.appState.locations = window.KS_DATA.locations;
+        window.appState.categories = window.KS_DATA.categories;
+    }
 }
 
 // Background sync function
